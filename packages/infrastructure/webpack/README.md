@@ -16,15 +16,17 @@ $ npm install @k8slens/webpack
 This configuration should be used when creating package that will be executed within **Node** environment. 
 
 **webpack.config.js**
+
 ```javascript
-module.exports = require("@k8slens/webpack").configForNode;
+module.exports = require("@k8slens/webpack/index").configForNode;
 ```
 ### React package
 This configuration should be used when creating package tha will be executed within **Browser** environment.
 
 **webpack.config.js**
+
 ```javascript
-module.exports = require("@k8slens/webpack").configForReact;
+module.exports = require("@k8slens/webpack/index").configForReact;
 ```
 
 ### Multi export package
@@ -32,10 +34,11 @@ module.exports = require("@k8slens/webpack").configForReact;
 This configuration should be used when package contains **multiple entrypoint** e.g. for different environments. You need to add `lensMultiExportConfig` to `package.json` with configuration. Note that also `exports` property needs to be set, but the correct values are generated from `lensMultiExportConfig` when using `lens-build` -script.
 
 **webpack.config.js**
+
 ```javascript
 const packageJson = require("./package.json");
 
-module.exports = require("@k8slens/webpack").getMultiExportConfig(packageJson);
+module.exports = require("@k8slens/webpack/index").getMultiExportConfig(packageJson);
 ```
 
 **package.json**
